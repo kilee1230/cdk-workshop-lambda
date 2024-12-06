@@ -12,12 +12,15 @@ export class CdkWorkshopStack extends Stack {
     // Define an S3 bucket
     const lambdaBucket = new Bucket(this, "LambdaTestHello");
 
+    // Determine the source directory based on the environment variable
+    const sourceDir = process.env.SOURCE_DIR || "./src";
+
     // Deploy the Lambda code to the S3 bucket
     const lambdaCodeAsset = new BucketDeployment(
       this,
       "LambdaCodeAssetDeployment",
       {
-        sources: [Source.asset("./build")],
+        sources: [Source.asset(sourceDir)],
         destinationBucket: lambdaBucket,
         exclude: ["**/*.ts"],
         extract: false,
