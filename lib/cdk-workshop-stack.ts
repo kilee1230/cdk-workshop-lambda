@@ -17,7 +17,7 @@ export class CdkWorkshopStack extends Stack {
       this,
       "LambdaCodeAssetDeployment",
       {
-        sources: [Source.asset("./src")],
+        sources: [Source.asset("./build")],
         destinationBucket: lambdaBucket,
         exclude: ["**/*.ts"],
         extract: false,
