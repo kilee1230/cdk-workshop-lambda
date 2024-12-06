@@ -46,7 +46,9 @@ jobs:
           path: ./build
 
       - name: Running Test and Coverage
-        run: pnpm test:coverage
+        run: |
+          pnpm install
+          pnpm test:coverage
 
   deploy:
     runs-on: ubuntu-latest
