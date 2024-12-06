@@ -1,17 +1,36 @@
-import * as cdk from 'aws-cdk-lib';
-import { Template, Match } from 'aws-cdk-lib/assertions';
-import * as CdkWorkshop from '../lib/cdk-workshop-stack';
+import * as cdk from "aws-cdk-lib";
+import { Template, Match } from "aws-cdk-lib/assertions";
+import { CdkWorkshopStack } from "../lib/cdk-workshop-stack";
 
-test('SQS Queue and SNS Topic Created', () => {
+test("S3 Bucket Created", () => {
   const app = new cdk.App();
-  // WHEN
-  const stack = new CdkWorkshop.CdkWorkshopStack(app, 'MyTestStack');
-  // THEN
-
+  const stack = new CdkWorkshopStack(app, "MyTestStack");
   const template = Template.fromStack(stack);
 
-  template.hasResourceProperties('AWS::SQS::Queue', {
-    VisibilityTimeout: 300
+  template.resourceCountIs("AWS::S3::Bucket", 1);
+});
+
+test("BucketDeployment Created", () => {
+  const app = new cdk.App();
+  const stack = new CdkWorkshopStack(app, "MyTestStack");
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties("Custom::CDKBucketDeployment", {
+    SourceBucketNames: Match.anyValue(),
+    DestinationBucketName: Match.anyValue(),
+    SourceObjectKeys: Match.anyValue(),
   });
-  template.resourceCountIs('AWS::SNS::Topic', 1);
+});
+
+test("Lambda Function Created", () => {
+  const app = new cdk.App();
+  const stack = new CdkWorkshopStack(app, "MyTestStack");
+  const template = Template.fromStack(stack);
+
+  template.hasResourceProperties("AWS::Lambda::Function", {
+    Handler: "index.handler",
+    Runtime: "nodejs22.x",
+    MemorySize: 256,
+    Timeout: 60,
+  });
 });
