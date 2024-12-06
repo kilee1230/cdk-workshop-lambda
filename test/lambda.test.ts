@@ -149,6 +149,6 @@ describe("handler", () => {
 
     const result: APIGatewayProxyResult = await handler(event);
 
-    expect(result.body).toBe("Hello, CDK! You've hit /test\n");
+    expect(result.body).toBe("Hello, CDK! Testing lambda here");
   });
 });

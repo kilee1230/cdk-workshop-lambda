@@ -9,6 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "test:update-snapshots": "jest --updateSnapshot",
     "cdk": "cdk",
     "bootstrp": "cdk bootstrap",
     "synthesize": "cdk synth",
