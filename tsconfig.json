@@ -1,11 +1,10 @@
 {
   "compilerOptions": {
+    "outDir": "./build",
+    "rootDir": ".",
     "target": "ES2020",
     "module": "commonjs",
-    "lib": [
-      "es2020",
-      "dom"
-    ],
+    "lib": ["es2020", "dom"],
     "declaration": true,
     "strict": true,
     "noImplicitAny": true,
@@ -20,12 +19,8 @@
     "inlineSources": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "typeRoots": ["./node_modules/@types"]
   },
-  "exclude": [
-    "node_modules",
-    "cdk.out"
-  ]
+  "include": ["src/**/*.ts", "lib/**/*.ts", "bin/**/*.ts"],
+  "exclude": ["node_modules", "cdk.out"]
 }
