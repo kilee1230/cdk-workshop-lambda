@@ -34,3 +34,12 @@ test("Lambda Function Created", () => {
     Timeout: 60,
   });
 });
+
+test("Snapshot Test", () => {
+  const app = new cdk.App();
+  const stack = new CdkWorkshopStack(app, "MyTestStack");
+
+  const template = Template.fromStack(stack);
+
+  expect(template.toJSON()).toMatchSnapshot();
+});
