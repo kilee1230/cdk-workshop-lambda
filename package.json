@@ -9,6 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk",
+    "bootstrp": "cdk bootstrap",
     "synthesize": "cdk synth",
     "diff": "cdk diff",
     "deploy": "pnpm build && cdk deploy --require-approval never"
