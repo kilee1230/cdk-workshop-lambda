@@ -29,12 +29,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
           run_install: true
-          
+
       - name: Running Test and Coverage
         run: pnpm test:coverage
 
