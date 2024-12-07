@@ -44,7 +44,7 @@ export class CdkWorkshopStack extends Stack {
     });
 
     // Add tagging to the resources
-    Tags.of(lambdaBucket).add("Project", "CDK Workshop");
-    Tags.of(helloFunction).add("Project", "CDK Workshop");
+    Tags.of(lambdaBucket).add("demo:label", "cdk-workshop");
+    Tags.of(helloFunction).add("demo:label", "cdk-workshop");
   }
 }
