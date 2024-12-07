@@ -224,8 +224,8 @@ exports[`Snapshot Test 1`] = `
         "Runtime": "nodejs22.x",
         "Tags": [
           {
-            "Key": "Project",
-            "Value": "CDK Workshop",
+            "Key": "demo:label",
+            "Value": "cdk-workshop",
           },
         ],
         "Timeout": 60,
@@ -262,8 +262,8 @@ exports[`Snapshot Test 1`] = `
         ],
         "Tags": [
           {
-            "Key": "Project",
-            "Value": "CDK Workshop",
+            "Key": "demo:label",
+            "Value": "cdk-workshop",
           },
         ],
       },
@@ -326,8 +326,8 @@ exports[`Snapshot Test 1`] = `
             "Value": "true",
           },
           {
-            "Key": "Project",
-            "Value": "CDK Workshop",
+            "Key": "demo:label",
+            "Value": "cdk-workshop",
           },
         ],
       },
