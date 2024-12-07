@@ -19,7 +19,7 @@
   "compileOnSave": true,
   "include": ["src/**/*"],
   "exclude": [
-    "dist*/**/*",
+    "build*/**/*",
     "node_modules",
     "**/*.spec.ts",
     "**/*.test.ts",

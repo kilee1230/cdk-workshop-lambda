@@ -311,7 +311,7 @@ exports[`Snapshot Test 1`] = `
           },
         ],
         "SourceObjectKeys": [
-          "02766fc4f1301ae9b7482e3fb831c8b7d603449bad2f4bba472cc3db4c2907cc.zip",
+          "32c829170f78e53dd3a3415b8c4df86e57895d430c7064295e79691a4d0a9843.zip",
         ],
       },
       "Type": "Custom::CDKBucketDeployment",

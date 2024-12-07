@@ -1,10 +1,10 @@
 import { Duration, Stack, StackProps } from "aws-cdk-lib";
-import { Code, Runtime, Function } from "aws-cdk-lib/aws-lambda";
+import { Fn } from "aws-cdk-lib";
+import { Tags } from "aws-cdk-lib";
+import { Code, Function, Runtime } from "aws-cdk-lib/aws-lambda";
 import { Bucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { Construct } from "constructs";
-import { Fn } from "aws-cdk-lib";
-import { Tags } from "aws-cdk-lib";
 
 export class CdkWorkshopStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -25,13 +25,13 @@ export class CdkWorkshopStack extends Stack {
         destinationBucket: lambdaBucket,
         exclude: ["**/*.ts"],
         extract: false,
-      }
+      },
     );
 
     // Reference the uploaded Lambda code
     const lambdaCode = Code.fromBucket(
       lambdaCodeAsset.deployedBucket,
-      Fn.select(0, lambdaCodeAsset.objectKeys)
+      Fn.select(0, lambdaCodeAsset.objectKeys),
     );
 
     // Define an AWS Lambda resource

@@ -46,7 +46,7 @@ The Lambda function is defined in [index.ts](http://_vscodecontentref_/4):
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
 export const handler = async (
-  event: APIGatewayProxyEvent
+  event: APIGatewayProxyEvent,
 ): Promise<APIGatewayProxyResult> => {
   return {
     statusCode: 200,
