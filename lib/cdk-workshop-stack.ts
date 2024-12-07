@@ -4,6 +4,7 @@ import { Bucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
 import { Construct } from "constructs";
 import { Fn } from "aws-cdk-lib";
+import { Tags } from "aws-cdk-lib";
 
 export class CdkWorkshopStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -34,12 +35,16 @@ export class CdkWorkshopStack extends Stack {
     );
 
     // Define an AWS Lambda resource
-    new Function(this, "HelloHandler", {
+    const helloFunction = new Function(this, "HelloHandler", {
       runtime: Runtime.NODEJS_22_X,
       code: lambdaCode,
       handler: "index.handler",
       memorySize: 256,
       timeout: Duration.seconds(60),
     });
+
+    // Add tagging to the resources
+    Tags.of(lambdaBucket).add("Project", "CDK Workshop");
+    Tags.of(helloFunction).add("Project", "CDK Workshop");
   }
 }
