@@ -11,7 +11,9 @@ export class CdkWorkshopStack extends Stack {
     super(scope, id, props);
 
     // Define an S3 bucket
-    const lambdaBucket = new Bucket(this, "LambdaTestHello");
+    const lambdaBucket = new Bucket(this, "LambdaTestHello", {
+      bucketName: "lambda-test-hello-bucket",
+    });
 
     // Determine the source directory based on the environment variable
     const sourceDir = process.env.SOURCE_DIR || "./src";
@@ -42,6 +44,7 @@ export class CdkWorkshopStack extends Stack {
       timeout: Duration.seconds(60),
       runtime: Runtime.NODEJS_22_X,
       architecture: Architecture.ARM_64,
+      functionName: "hello-lambda",
     });
 
     // Add tagging to the resources
