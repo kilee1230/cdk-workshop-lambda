@@ -12,7 +12,7 @@ export class CdkWorkshopStack extends Stack {
 
     // Define an S3 bucket
     const lambdaBucket = new Bucket(this, "LambdaTestHello", {
-      bucketName: "lambda-test-hello-bucket",
+      bucketName: "test-lambda2-hello-bucket",
     });
 
     // Determine the source directory based on the environment variable
