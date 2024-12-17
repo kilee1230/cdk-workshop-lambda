@@ -324,7 +324,7 @@ exports[`Snapshot Test 1`] = `
     "LambdaTestHello42DF2A8D": {
       "DeletionPolicy": "Retain",
       "Properties": {
-        "BucketName": "lambda-test-hello-bucket",
+        "BucketName": "test-lambda2-hello-bucket",
         "Tags": [
           {
             "Key": "aws-cdk:cr-owned:5e799c07",
